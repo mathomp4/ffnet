@@ -32,12 +32,15 @@ class F2PyCommand(Command):
         os.chdir(os.path.join(build_lib, 'ffnet/fortran'))
         sources = ['ffnet.f', 'pikaia.f']
         modules = ['_ffnet', '_pikaia']
+        env = os.environ.copy()
+        myfc = {'FC': 'gfortran'}
+        env.update(myfc)
         for s, m in zip(sources, modules):
             cmd = ['f2py', '-m', m, '-c', s]
             self.announce(
                 f'Compiling Fortran extension: {str(cmd)}',
                 level=distutils.log.INFO)
-            subprocess.check_call(cmd)
+            subprocess.check_call(cmd, env=env)
         os.chdir('../../../..')
 
 
