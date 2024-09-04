@@ -33,7 +33,7 @@ class F2PyCommand(Command):
         sources = ['ffnet.f', 'pikaia.f']
         modules = ['_ffnet', '_pikaia']
         for s, m in zip(sources, modules):
-            cmd = ['f2py', '-m', m, '-c', s, '-fcompiler=gnu95', '--f90exec=gfortran', '--f77exec=gfortran']
+            cmd = ['f2py', '-m', m, '-c', s, '--f90exec=gfortran', '--f77exec=gfortran']
             self.announce(
                 f'Compiling Fortran extension: {str(cmd)}',
                 level=distutils.log.INFO)
