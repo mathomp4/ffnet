@@ -36,7 +36,7 @@ class F2PyCommand(Command):
         myfc = {'FC': 'gfortran'}
         env.update(myfc)
         for s, m in zip(sources, modules):
-            cmd = ['f2py', '-m', m, '-c', s]
+            cmd = ['f2py', '-m', m, '-c', s, '-fcompiler=gnu95']
             self.announce(
                 f'Compiling Fortran extension: {str(cmd)}',
                 level=distutils.log.INFO)
