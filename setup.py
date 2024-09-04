@@ -12,7 +12,7 @@ import sys
 
 major = sys.version_info.major
 minor = sys.version_info.minor
-meson = ['meson', 'meson-python'] if (major == 3 and minor >= 12) else []
+meson = ['meson', 'meson-python']
 
 
 class F2PyCommand(Command):
