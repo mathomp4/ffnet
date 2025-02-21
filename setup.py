@@ -7,6 +7,7 @@ from setuptools.command.build_py import build_py
 from setuptools.dist import Distribution
 import distutils.log
 import subprocess
+subprocess._USE_POSIX_SPAWN = False
 import os
 import sys
 
